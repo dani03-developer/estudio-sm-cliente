@@ -5,7 +5,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const CardPackages =( {id, featured, title, price, description, link, features, forceblue = false} )=>{
+const CardPackages =( {id, featured, title, description, link, features, forceblue = false} )=>{
     return(
         <div
             key={id}
@@ -32,9 +32,8 @@ const CardPackages =( {id, featured, title, price, description, link, features, 
                   'text-5xl font-semibold tracking-tight',
                 )}
               >
-                {price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}
+                Mensual
               </span>
-              <span className={classNames(featured ? 'text-gray-400' : 'text-gray-400', 'text-base')}>/mensual</span>
             </p>
             <p className={classNames(featured ? 'text-gray-300 font-quicksand' : 'text-gray-300 font-quicksand', 'mt-6 text-base/7')}>
               {description}
@@ -56,7 +55,7 @@ const CardPackages =( {id, featured, title, price, description, link, features, 
                 </li>
               ))}
             </ul>
-              <Link to='/contacto'><Button className='mt-8 bg-[#4A7C9E]/58 text-[#f7f4ee] hover:bg-[#4A7C9E]'>Agendar Cita</Button></Link>
+              <Link to='/contacto'><Button className='mt-8 bg-[#4A7C9E]/58 text-[#f7f4ee] hover:bg-[#4A7C9E]'>Empezar ahora</Button></Link>
           </div>
     );
 }

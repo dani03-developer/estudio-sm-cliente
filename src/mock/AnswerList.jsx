@@ -1,11 +1,4 @@
 const AnswerList = {
-    'carrito-vacio': {
-        img: '🛒',
-        title: 'Ups...tu carrito está vacío',
-        description: '',
-        button: 'Volver a la tienda',
-        direction: '/servicios'
-    },
     'producto-no-encontrado': {
         img: '🤔',
         title: 'Producto no encontrado',
@@ -24,13 +17,6 @@ const AnswerList = {
         img: '😥',
         title: 'Error 404',
         description: 'Página no encontrada',
-        button: 'Volver al inicio',
-        direction: '/'
-    },
-    'compra-exitosa':{
-        img: '🎉',
-        title: '¡Compra realizada con éxito!',
-        description: 'Pronto estarás recibiendo la información del servicio adquirido, unas de nuestras contadoras ya está atendiendo tu caso. Muchas gracias por confiar en SM Estudio Integral Contable.',
         button: 'Volver al inicio',
         direction: '/'
     }

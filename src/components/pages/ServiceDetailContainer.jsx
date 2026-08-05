@@ -11,7 +11,7 @@ const ServiceDetailContainer = () => {
      const { id } = useParams();
             useEffect(()=>{
                 //creando la referencia
-                const docRef = doc(db, "services", id)
+                const docRef = doc(db, "ServiciosPuntuales", id)
                 Promise.all([ //ambas promesas deben cumplirse
                     //pidiendo los datos(documentos)
                     getDoc(docRef),
@@ -35,7 +35,8 @@ const ServiceDetailContainer = () => {
     return (
         <>
         {
-            loading ? <LoaderComponent/>:<ServiceDetail service={data} invalid={invalid}/>
+            loading ? <LoaderComponent/> :
+            <ServiceDetail service={data} invalid={invalid}/>
         }
         </>
     );

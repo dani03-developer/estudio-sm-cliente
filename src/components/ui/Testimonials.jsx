@@ -14,6 +14,7 @@ const Testimonials =( { list } )=>{
                md={1}
                lg={1}
                xl={1}
+               xxl={1}
                 renderCard={(testimony, i) => (
                   <CardTestimony
                     key ={i}

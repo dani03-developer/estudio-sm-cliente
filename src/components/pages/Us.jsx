@@ -7,13 +7,13 @@ import Testimonials from "../ui/Testimonials";
 import LoaderComponent from "../layout/LoaderComponent";
 import UseFirestoreCollection from "../../hooks/UseFirestoreCollection";
 const Us =()=>{
-    const { data: testimonialData, loading: loadingTestimonial} = UseFirestoreCollection('testimonials')
-    const { data: teamData, loading: loadingteam} = UseFirestoreCollection('teamList')
+    const { data: testimonialData, loading: loadingTestimonial} = UseFirestoreCollection('Testimonios')
+    const { data: teamData, loading: loadingteam} = UseFirestoreCollection('NuestroEquipo')
     const loading =  loadingTestimonial || loadingteam
     return(
         <>
             {
-                loading ? <LoaderComponent/>:
+                loading ? <LoaderComponent/> :
                 <div className='relative h-full flex flex-col gap-20'>
                     <Whatsapp/>
                     <HeroUs/>

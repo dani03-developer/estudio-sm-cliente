@@ -1,16 +1,7 @@
-import ItemCount from "../ui/ItemCount";
-import { useContext, useState } from 'react';
-import { CartContext } from "../../context/CartContext";
-import { Link } from "react-router-dom";
-import { Button } from "../ui/Button";
 import AnswerPage from "../pages/AnswerPage";
+import {Link} from 'react-router-dom';
+import {Button} from '../ui/Button';
 const ServiceDetail = ( { service, invalid } ) => {
-    const [purchase, setPurchase] = useState(false);
-    const { cart, addToCart } = useContext(CartContext);
-    const onAdd = (quantity) => {
-        addToCart(service, quantity);
-        setPurchase(true);
-    }
     return(
         <>
         {invalid ?
@@ -23,9 +14,7 @@ const ServiceDetail = ( { service, invalid } ) => {
                     <h1 className='font-inter text-2xl font-semibold lg:text-3xl'>{service.nameService}</h1>
                     <p>{service.description}</p>
                     <p className='text-[#7C7878]'>{service.detail}</p>
-                    <p className='font-inter font-semibold text-[#25476D]'>Precio</p>
-                    <p className='font-inter font-bold text-xl'>{service.price.toLocaleString('es-AR', { style: 'currency', currency: 'ARS' })}</p>
-                    {purchase ? <Link to='/carrito'><Button className='bg-[#25476D] text-[#F7F4EE]'>Ir al carrito</Button></Link>: <ItemCount stock={10} onAdd={onAdd}/>}
+                    <Link to='/contacto'><Button className='mt-2 bg-[#25476D] text-[#f7f4ee] hover:bg-[#4A7C9E]'>Solicitar servicio</Button></Link>
                 </div>
             </div>
         }

@@ -1,8 +1,5 @@
 # Estudio Integral Contable SM
 
-Sitio web institucional desarrollado para el curso de React JS - CoderHouse. 
-Se escogió un Estudio Integral Contable SM. Construido con React, Vite, Tailwind CSS y Firebase.
-
 ---
 
 ## Tecnologías

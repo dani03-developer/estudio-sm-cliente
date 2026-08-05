@@ -2,11 +2,7 @@ const Navegation = [
   { name: 'Inicio', href: '/'},
   {
     name: 'Servicios',
-    href: '/servicios',
-    categories: [
-      { name: 'Inscripciones', href: '/servicios/inscripciones' },
-      { name: 'Certificaciones', href: '/servicios/certificaciones' },
-    ],
+    href: '/servicios'
   },
   { name: 'Nosotros', href: '/nosotros' },
   { name: 'Contacto', href: '/contacto' },

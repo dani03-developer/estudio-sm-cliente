@@ -1,6 +1,7 @@
 import Reveal from "../../animations/Reveal";
 import SplitText from "../../animations/SplitText";
 import { FaLinkedin, FaInstagram } from "react-icons/fa";
+import Carousel from "../../ui/Carousel";
 const OurTeam =( {list} )=>{
     return(
         <div className='mx-auto flex max-w-screen-xl flex-col gap-16  justify-center items-center text-center text-[#1e1e1e]'>
@@ -14,8 +15,13 @@ const OurTeam =( {list} )=>{
                 text='Nuestro equipo, tu respaldo contable.'
                 className='mt-2 text-3xl font-inter font-bold tracking-tight text-balance text-[#1e1e1e] sm:text-4xl'
             />
-            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6'>
-                {list.map((member, index) => (
+             <Carousel
+               list={list}
+               md={2}
+               lg={2}
+               xl={3}
+               xxl={4}
+                renderCard={(member, index) => (
                     <div key={index} className='flex relative flex-col w-70 items-center text-start gap-4 rounded-lg md:w-60 lg:w-70'>
                         <img src={member.photo} alt={member.name} className='object-cover' />
                         <div className='absolute flex flex-col items-start p-10 place-content-between h-full md:p-7 lg:p-10 rounded-lg w-full'>
@@ -34,8 +40,9 @@ const OurTeam =( {list} )=>{
                             </div>
                         </div>
                     </div>
-                ))}
-            </div>
+                )}
+            />
+    
         </div>
     );
 };

@@ -1,4 +1,3 @@
-// src/components/layout/Footer.jsx
 import { BsInstagram } from 'react-icons/bs';
 import Navegation from '../../mock/Navegation';
 import { Button } from '../ui/Button';
@@ -11,7 +10,7 @@ const Footer = () => {
 
          <footer className=' relative border-t bg-[#1e1e1e] text-[#f4f7ee] font-inter items-end justify-end'>
           {pathname === '/' && (
-            <img className='absolute w-90  -top-25 left-1/2 -translate-x-1/2 sm:w-120 md:w-150 md:-top-35 xl:w-160 z-10' src="https://i.postimg.cc/J76kh6mT/Banner-Footer.png" alt="" />
+            <img className='absolute w-90  -top-25 left-1/2 -translate-x-1/2 sm:w-120 md:w-150 md:-top-35 xl:w-160 z-10' src="https://i.postimg.cc/LXyV9fx8/Banner-Footer.png" alt="" />
           )}
           {
             pathname === '/' && (
@@ -22,7 +21,7 @@ const Footer = () => {
           className={pathname === '/' ? 'mx-auto pt-15 pb-10  px-6 md:px-5 sm:pt-35 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8':'p-10 flex flex-col lg:flex-row lg:justify-between lg:items-center gap-8'}>
         <section>
           <NavLink to='/'>
-            <img src='https://i.postimg.cc/fTsRDYSb/Group-33.png' className='h-10 md:h-12 xl:h-13' alt='SM' />
+            <img src='https://i.postimg.cc/c12jyg6g/Group-33.png' className='h-10 md:h-12 xl:h-13' alt='SM' />
           </NavLink>
         </section>
         <section className='hidden lg:block'>

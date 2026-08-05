@@ -9,7 +9,7 @@ const History =()=>{
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true);
     useEffect(() => {
-        const historyQuery = query(collection(db, "historyList"), orderBy("year", "asc"));
+        const historyQuery = query(collection(db, "Historia"), orderBy("year", "asc"));
         getDocs(historyQuery)
         .then((res) => {
                 const list = res.docs.map((doc) => ({
@@ -23,8 +23,9 @@ const History =()=>{
     }, []);
     return(
         <div className='h-full flex flex-col gap-20'>
-            <p className='mx-auto mt-6 max-w-2xl px-5 font-quicksand text-center text-base sm:text-lg font-medium text-[#1e1e1e] sm:text-xl/8 lg:px-0'>
-                En SM Estudio Integral, entendemos que detrás de cada balance y cada trámite hay una familia, un proyecto y un esfuerzo que merece ser protegido. No nos definimos simplemente como receptores de información; somos un equipo dinámico que cree en la eficacia como motor de crecimiento y en la ética como pilar innegociable de cada decisión contable.
+            <p className='mx-auto mt-6 max-w-3xl px-5 font-quicksand text-center text-sm sm:text-base font-medium text-[#1e1e1e] lg:px-0'>
+                En Estudio Integral Contable SM entendemos la contabilidad como un acompañamiento, no como un trámite. Detrás de cada número hay un proyecto, una familia y un esfuerzo que merece crecer tranquilo, y por eso trabajamos cerca: hacemos un seguimiento constante, entendemos cómo funciona cada empresa por dentro y proponemos ideas para que cada cliente pueda avanzar, no solo cumplir con sus obligaciones.
+                Lo que empezó como el proyecto de una contadora que quería hacer las cosas distintas, hoy es un equipo completo. Sumamos asesoramiento financiero y el respaldo de una abogada para cubrir cada necesidad desde una sola mesa: lo contable, lo impositivo, lo financiero y lo legal, siempre con la misma cercanía. Nuestro objetivo es simple: que ordenes tus números y puedas crecer tranquilo, sabiendo que tenés un equipo interdisciplinario cuidando cada aspecto de tu proyecto.
             </p>
             <div className="relative isolate  flex flex-col justify-center items-center bg-gray-900 px-6 py-24 sm:py-32 lg:px-8">
       <div aria-hidden="true" className="absolute inset-x-0 -top-3 -z-10 transform-gpu overflow-hidden px-36 blur-3xl">
@@ -53,6 +54,7 @@ const History =()=>{
                 md={2}
                 lg={2}
                 xl={3}
+                xxl={3}
                 renderCard={(service, index) => (
                 <BasicCard className="max-w-md gap-4 py-10 text-center  bg-[#f4f7ee]" key={index}>
                     <p className='font-inter text-4xl md:text-5xl font-bold text-[#25476D]'>{service.year}</p>

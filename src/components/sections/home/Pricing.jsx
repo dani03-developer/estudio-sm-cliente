@@ -2,9 +2,6 @@ import Carousel from '../../ui/Carousel';
 import CardPackages from '../../ui/CardPackages';
 import Reveal from '../../animations/Reveal'
 import SplitText from '../../animations/SplitText';
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Pricing( {list} ) {
   return (
@@ -19,7 +16,7 @@ export default function Pricing( {list} ) {
         />
       </div>
       <div className="mx-auto max-w-4xl text-center">
-        <h2 className="text-base/7 font-quicksand font-semibold text-[#1069CE]">Precios</h2>
+        <h2 className="text-base/7 font-quicksand font-semibold text-[#1069CE]">Planes</h2>
         <SplitText
             tag='h2'
             text='Administra adecuadamente tu negocio y crece'
@@ -36,13 +33,13 @@ export default function Pricing( {list} ) {
                md={1}
                lg={2}
                xl={3}
+               xxl={3}
                 renderCard={(service) => (
                 <CardPackages
                     key={service.id}
                     id={service.id}
                     featured={service.featured}
                     title={service.name}
-                    price={service.priceMonthly}
                     description={service.description}
                     features={service.features}
                     link={service.href}

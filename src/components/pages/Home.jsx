@@ -10,18 +10,18 @@ import Contact from '../sections/home/Contact'
 import UseFirestoreCollection  from '../../hooks/UseFirestoreCollection';
 import LoaderComponent from '../layout/LoaderComponent';
 const Home =()=>{
-    const { data: serviceData, loading: loadingServices } = UseFirestoreCollection('services')
-    const { data: packageData, loading: loadingPackages } = UseFirestoreCollection('packagesServices')
-    const { data: fqaData, loading: loadingFqa } = UseFirestoreCollection('fqaList')
-    const { data: testimonialData, loading: loadingTestimonial} = UseFirestoreCollection('testimonials')
-    const { data: benefitsData, loading: loadingbenefits} = UseFirestoreCollection('benefits')
+    const { data: serviceData, loading: loadingServices } = UseFirestoreCollection('ServiciosPuntuales')
+    const { data: packageData, loading: loadingPackages } = UseFirestoreCollection('ServiciosMensuales')
+    const { data: fqaData, loading: loadingFqa } = UseFirestoreCollection('PreguntasFrecuentes')
+    const { data: testimonialData, loading: loadingTestimonial} = UseFirestoreCollection('Testimonios')
+    const { data: benefitsData, loading: loadingbenefits} = UseFirestoreCollection('Beneficios')
 
     const loading = loadingServices || loadingPackages || loadingFqa || loadingTestimonial || loadingbenefits
 
     return(
         <>
         {
-            loading ? <LoaderComponent/>:
+            loading ? <LoaderComponent/> :
             <div className='relative h-full flex flex-col gap-20' >
                 <Whatsapp/>
                 <Hero />

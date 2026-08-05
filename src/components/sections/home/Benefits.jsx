@@ -10,7 +10,7 @@ const Benefits = ( { list } ) => {
                 <h2 >Nuestros Beneficios</h2>
                 </div>
             </Reveal>
-                {list.map(i => (<CardBenefits key={i.title}  icon={BenefitsList.find((item)=>item.iconName === i.icon)?.icon} title={i.title} subtitle={i.subtitle} description={i.description} />))}
+                {list.map(i => (<CardBenefits key={i.title}  icon={BenefitsList.find((item)=>item.iconName === i.iconName)?.icon} title={i.title} subtitle={i.subtitle} description={i.description} />))}
         </Container>
     );
 }

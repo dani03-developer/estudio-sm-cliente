@@ -15,7 +15,7 @@ const Form = () => {
                 usuario: {nombre, apellido, email, telefono, mensaje} ,
                 fecha: serverTimestamp()
             }
-            const queriesColl = collection(db,"consultas")
+            const queriesColl = collection(db,"Consultas")
             addDoc(queriesColl, userQuery)
             .then(() =>{
                 navigate('/respuesta/formulario-enviado')

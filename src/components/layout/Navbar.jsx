@@ -1,16 +1,13 @@
 import { Disclosure, DisclosureButton, DisclosurePanel} from '@headlessui/react'
 import { Bars3Icon, ChevronDownIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { useState } from 'react'
 import {NavLink, useLocation} from 'react-router-dom';
 import Navegation from '../../mock/Navegation';
-import CartWidget from './CartWidget';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
 export default function Navbar() {
   const { pathname } = useLocation()
-  const [openCategory, setOpenCategory] = useState(null)
   return (
     <Disclosure
       as="nav"
@@ -32,7 +29,7 @@ export default function Navbar() {
               <NavLink to='/'>
                 <img
                   alt="Your Company"
-                  src={pathname === '/' || pathname === '/nosotros' ? 'https://i.postimg.cc/HsBCbZd2/Group-29.png' : 'https://i.postimg.cc/NFJfyyZt/Group-31.png'}
+                  src={pathname === '/' || pathname === '/nosotros' ? 'https://i.postimg.cc/pdCfCzb9/Group-29.png' : 'https://i.postimg.cc/bvgxgkcs/Group-31.png'}
                   className="h-8 lg:h-10"
                 />
               </NavLink>
@@ -55,21 +52,6 @@ export default function Navbar() {
                   >
                     {item.name}
                   </NavLink>
-                  {item.categories && (
-                    <div className="invisible absolute left-0 top-full z-50 w-56 pt-2 opacity-0 transition-all duration-150 group-hover:visible group-hover:opacity-100">
-                      <div className="overflow-hidden rounded-md bg-[#25476D] py-1 shadow-lg ring-1 ring-black/5">
-                        {item.categories.map((category) => (
-                          <NavLink
-                            key={category.name}
-                            to={category.href}
-                            className="block px-4 py-2 text-sm font-medium text-gray-200 hover:bg-white/10"
-                          >
-                            {category.name}
-                          </NavLink>
-                        ))}
-                      </div>
-                    </div>
-                  )}
                 </div>
               ))}
             </div>
@@ -80,8 +62,6 @@ export default function Navbar() {
               className={pathname === '/' || pathname === '/nosotros' ? 'relative rounded-full p-1 text-white':'relative rounded-full p-1 text-[#1e1e1e]'}
             >
               <span className="absolute -inset-1.5" />
-              <span className="sr-only">Ver Carrito</span>
-              <CartWidget />
             </button>
           </div>
         </div>
@@ -104,39 +84,7 @@ export default function Navbar() {
                 >
                   {item.name}
                 </DisclosureButton>
-                {item.categories && (
-                  <button
-                    type="button"
-                    onClick={() => setOpenCategory(openCategory === item.name ? null : item.name)}
-                    className="rounded-md p-2 text-white hover:bg-white/5"
-                  >
-                    <span className="sr-only">Mostrar categorías de {item.name}</span>
-                    <ChevronDownIcon
-                      aria-hidden="true"
-                      className={classNames(openCategory === item.name ? 'rotate-180' : '', 'size-5 transition-transform')}
-                    />
-                  </button>
-                )}
               </div>
-              {item.categories && openCategory === item.name && (
-                <div className="space-y-1 pl-4">
-                  {item.categories.map((category) => (
-                    <DisclosureButton
-                      key={category.name}
-                      as={NavLink}
-                      to={category.href}
-                      className={({ isActive }) =>
-                        classNames(
-                          isActive ? 'text-white' : 'text-gray-300 hover:bg-white/5 hover:text-white',
-                          'block rounded-md px-3 py-2 text-sm font-medium',
-                        )
-                      }
-                    >
-                      {category.name}
-                    </DisclosureButton>
-                  ))}
-                </div>
-              )}
             </div>
           ))}
         </div>
