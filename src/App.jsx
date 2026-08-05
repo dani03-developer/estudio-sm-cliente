@@ -12,7 +12,7 @@ import Services from './components/pages/Services';
 function App() {
 
   return (
-    <BrowserRouter basename="/repo-estudioIntegralContableSM/">
+    <BrowserRouter>
       <ScrollToTop/>
       <SmoothScroll>
       <Layout>
