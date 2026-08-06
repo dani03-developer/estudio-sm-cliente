@@ -32,6 +32,7 @@ const Services =( { list } )=>{
                     id={service.id}
                     icon={ServicesList.find((item)=>item.iconName === service.iconName)?.icon}
                     nameService={service.nameService}
+                    categoria={service.type}
                     description={service.description}
                     price={service.price}
                     className={index % 2 !== 0 ? 'bg-[#25476D] text-[#f7f4ee]' : 'bg-[#E5E2E2]'}

@@ -40,6 +40,7 @@ export default function Pricing( {list} ) {
                     id={service.id}
                     featured={service.featured}
                     title={service.name}
+                    categoria={service.category}
                     description={service.description}
                     features={service.features}
                     link={service.href}

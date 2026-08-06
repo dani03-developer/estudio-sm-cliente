@@ -1,7 +1,8 @@
 import {Button} from '../ui/Button';
 import CirculeIcon from './CirculeIcon';
 import { Link } from 'react-router-dom';
-const Card =( {id, icon, nameService, description, className='', classBtn=''} )=>{
+import WhatsappLink  from "../../lib/WhatsappLink";
+const Card =( {id, icon, nameService, categoria, description, className='', classBtn=''} )=>{
   return(
     <div className={`flex flex-col gap-4 border rounded-lg p-6 justify-center items-start md:justify-start w-full ${className}`}>
       <CirculeIcon icon={icon} className='bg-[#25476D] text-[#f4f7ee]'/>
@@ -13,7 +14,9 @@ const Card =( {id, icon, nameService, description, className='', classBtn=''} )=
         <Link to={`/servicio/${id}`}>
           <Button className={`w-fit ${classBtn} hover:text-white`}>Ver Detalles</Button>
         </Link>
-        <Button className={`w-fit ${classBtn} hover:text-white`}>Consultar Servicio</Button>
+        <a href={WhatsappLink(nameService, categoria)} target="_blank" rel="noopener noreferrer">
+          <Button className={`w-fit ${classBtn} hover:text-white`}>Consultar Servicio</Button>
+        </a>
       </div>
       
     </div>

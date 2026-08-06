@@ -16,7 +16,7 @@ const Whatsapp =()=>{
                 <p>¿Tenés dudas? ¡Consultanos! 👩‍💻</p>
             </div>
             <motion.a 
-            href="https://wa.me/5493516210162?text=Hola%20quiero%20más%20información" 
+            href={`https://api.whatsapp.com/send?phone=5493516210162&text=${encodeURIComponent("¡Hola! Me gustaría saber más sobre sus servicios. ¿Me pueden orientar? ☺️")}`}
             target="_blank" 
             rel="noopener noreferrer"
             whileHover={{scale: 1.1,}}

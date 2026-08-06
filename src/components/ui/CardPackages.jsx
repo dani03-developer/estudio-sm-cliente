@@ -1,11 +1,11 @@
 import { CheckIcon } from '@heroicons/react/20/solid'
 import { Button } from './Button';
-import { Link } from 'react-router-dom';
+import WhatsappLink from '../../lib/WhatsappLink';
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const CardPackages =( {id, featured, title, description, link, features, forceblue = false} )=>{
+const CardPackages =( {id, featured, title, categoria, description, features, forceblue = false} )=>{
     return(
         <div
             key={id}
@@ -55,7 +55,9 @@ const CardPackages =( {id, featured, title, description, link, features, forcebl
                 </li>
               ))}
             </ul>
-              <Link to='/contacto'><Button className='mt-8 bg-[#4A7C9E]/58 text-[#f7f4ee] hover:bg-[#4A7C9E]'>Empezar ahora</Button></Link>
+            <a href={WhatsappLink(title, categoria)} target="_blank" rel="noopener noreferrer">
+              <Button className='mt-8 bg-[#4A7C9E]/58 text-[#f7f4ee] hover:bg-[#4A7C9E]'>Empezar ahora</Button>
+            </a>
           </div>
     );
 }
