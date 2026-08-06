@@ -42,6 +42,7 @@ const [loading, setLoading] = useState(true);
                         id={service.id}
                         featured={service.featured}
                         title={service.name}
+                        categoria={service.category}
                         description={service.description}
                         features={service.features}
                         link={service.href}
@@ -60,6 +61,7 @@ const [loading, setLoading] = useState(true);
                     id={service.id}
                     icon={ServicesList.find((item)=>item.iconName === service.iconName)?.icon}
                     nameService={service.nameService}
+                    categoria={service.type}
                     description={service.description}
                     className={index % 2 !== 0 ? 'bg-[#25476D] text-[#f7f4ee]' : 'bg-[#E5E2E2]'}
                     classBtn={index % 2 !==0 ? 'bg-[#95B2C6]/58 text-[#f7f4ee] hover:bg-[#4A7C9E]':'bg-[#95B2C6]/58 text-[#25476D] hover:bg-[#25476D]'}
