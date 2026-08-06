@@ -1,7 +1,7 @@
 import AnswerPage from "../pages/AnswerPage";
-import {Link} from 'react-router-dom';
+import WhatsappLink from "@/lib/WhatsappLink";
 import {Button} from '../ui/Button';
-const ServiceDetail = ( { service, invalid } ) => {
+const ServiceDetail = ( { service, invalid} ) => {
     return(
         <>
         {invalid ?
@@ -14,7 +14,9 @@ const ServiceDetail = ( { service, invalid } ) => {
                     <h1 className='font-inter text-2xl font-semibold lg:text-3xl'>{service.nameService}</h1>
                     <p>{service.description}</p>
                     <p className='text-[#7C7878]'>{service.detail}</p>
-                    <Link to='/contacto'><Button className='mt-2 bg-[#25476D] text-[#f7f4ee] hover:bg-[#4A7C9E]'>Solicitar servicio</Button></Link>
+                    <a href={WhatsappLink(service.nameService, service.type)} target="_blank" rel="noopener noreferrer">
+                        <Button className='mt-2 bg-[#25476D] text-[#f7f4ee] hover:bg-[#4A7C9E]'>Solicitar servicio</Button>
+                    </a>
                 </div>
             </div>
         }
