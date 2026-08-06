@@ -19,6 +19,13 @@ const AnswerList = {
         description: 'Página no encontrada',
         button: 'Volver al inicio',
         direction: '/'
-    }
+    },
+    'formulario-no-enviado': {
+        img: '😥',
+        title: '¡Ups! Algo salió mal',
+        description: 'Parece que hubo un error al enviar tu consulta. Por favor, intentá nuevamente más tarde o escribinos por WhatsApp.',
+        button: 'Volver al inicio',
+        direction: '/'
+    },
 };
 export default AnswerList;

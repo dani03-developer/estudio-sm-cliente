@@ -4,25 +4,51 @@ import { Button } from '../ui/Button';
 import { addDoc, collection, serverTimestamp } from 'firebase/firestore';
 import { db } from '../../firebase/firebase';
 import { useForm } from 'react-hook-form';
+import emailjs from '@emailjs/browser'; 
+
 const Form = () => {
-        const [loading, setLoading] = useState(null);
-        const {register, handleSubmit, formState:{errors}} =useForm()
-        const navigate = useNavigate();
-        const sendForm =(data)=>{
-            const {nombre, apellido, email, telefono, mensaje} = data
-            setLoading(true)
-            let userQuery = {
-                usuario: {nombre, apellido, email, telefono, mensaje} ,
-                fecha: serverTimestamp()
+    const [loading, setLoading] = useState(null);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const navigate = useNavigate();
+
+    const sendForm = async (data) => {         
+        const { nombre, apellido, email, telefono, mensaje } = data;
+        setLoading(true);
+
+        const userQuery = {
+            usuario: { nombre, apellido, email, telefono, mensaje },
+            fecha: serverTimestamp()
+        };
+
+        try {
+            // 1) CRÍTICO: guardar la consulta en Firestore
+            const queriesColl = collection(db, "Consultas");
+            await addDoc(queriesColl, userQuery);
+
+            // 2) BEST-EFFORT: avisar por email al estudio (si falla, no frena)
+            try {
+                await emailjs.send(
+                    import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                    import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                    { nombre, apellido, email, telefono, mensaje },  
+                    { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
+                );
+            } catch (emailError) {
+                // El mail no salió, pero la consulta YA quedó guardada en Firestore.
+                console.error("EmailJS falló (la consulta se guardó igual):", emailError);
             }
-            const queriesColl = collection(db,"Consultas")
-            addDoc(queriesColl, userQuery)
-            .then(() =>{
-                navigate('/respuesta/formulario-enviado')
-            })
-            .catch((error)=> console.log(error))
-            .finally(() => setLoading(false));
+
+            // 3) Éxito para el usuario (la consulta se guardó sí o sí)
+            navigate('/respuesta/formulario-enviado');
+
+        } catch (firestoreError) {
+            // Esto sí es un error real: no se pudo guardar la consulta
+            console.error("Error al guardar la consulta:", firestoreError);
+            navigate('/respuesta/formulario-no-enviado');
+        } finally {
+            setLoading(false);
         }
+    };
     return(
         <div className="rounded-lg bg-[#f4f7ee] shadow-[0_-1px_20px_rgba(124,124,124,0.2)] w-full md:w-1/2">
             <form  className="p-6 flex flex-col gap-4 font-inter" onSubmit={handleSubmit(sendForm)}>

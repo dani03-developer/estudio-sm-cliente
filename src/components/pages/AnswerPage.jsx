@@ -15,7 +15,6 @@ const AnswerPage = ({ namePage }) => {
             <h1 className='text-2xl md:text-3xl'>{title}</h1>
             <div className='text-sm sm:text-base flex flex-col w-[90%] md:w-[70%] lg:w-[50%] gap-3'>
                 <p className='font-quicksand text-[#7d7b7b]'>{description}</p>
-                {orderId ? <p className='font-inter text-[#1e1e1e]'>Número de orden: {orderId}</p>: null}
             </div>
 
             <Link to={direction}>
