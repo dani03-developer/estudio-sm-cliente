@@ -3,7 +3,7 @@ import Reveal from '../animations/Reveal'
 import CardTestimony from './CardTestimony';
 const Testimonials =( { list } )=>{
     return(
-        <div className='flex flex-col items-center justify-center text-center w-full h-[80vh] gap-15  text-[#1e1e1e]'>
+        <div className='flex flex-col items-center justify-center text-center w-full h-fit gap-15  text-[#1e1e1e]'>
             <Reveal>
                 <div className='text-center text-lg w-40 py-1 font-quicksand md:p-3 border-2 border-[#1e1e1e] rounded-full'>
                 <h2>Testimonios</h2>

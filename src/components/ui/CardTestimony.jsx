@@ -5,7 +5,7 @@ const CardTestimony =( {testimony,img, namePerson, profession})=>{
             <SplitText
                 tag='p'
                 text={testimony}
-                className=' text-2xl font-inter font-semibold tracking-tight text-balance sm:text-3xl md:text-4xl'
+                className=' text-xl font-inter font-semibold tracking-tight text-balance sm:text-3xl md:text-4xl'
             />
             <div className='flex flex-row items-center justify-center gap-3'>
                     <img src={img} className='size-10 rounded-full outline' />

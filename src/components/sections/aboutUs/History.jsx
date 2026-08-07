@@ -45,7 +45,7 @@ const History =()=>{
       </div>
       <Reveal>
            <p className="mx-auto mt-6 max-w-2xl font-quicksand text-center text-lg font-medium text-gray-400 sm:text-xl/8">
-        Transformá tu gestión contable en una ventaja estratégica con nuestro asesoramiento mensual proactivo, diseñado para anticipar cada uno de tus desafíos fiscales.
+          No crecimos solos, lo hicimos junto a cada cliente que nos eligió. Este es el camino que recorrimos para convertirnos en un estudio integral.
       </p>
       </Reveal>
       <div className="mx-auto mt-16 flex w-full items-center gap-y-6 sm:mt-20">
